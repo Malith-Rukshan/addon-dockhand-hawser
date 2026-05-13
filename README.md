@@ -10,6 +10,10 @@
 
 _Run the Hawser agent inside Home Assistant to let [Dockhand](https://dockhand.pro) manage your HA Docker host — containers, images, networks, volumes and Compose stacks — from anywhere._
 
+<p align="center">
+  <img src="assets/screenshot-preview.png" alt="Home Assistant containers managed from Dockhand" width="100%">
+</p>
+
 ## About
 
 [Hawser](https://github.com/Finsys/hawser) is a lightweight Go agent that
@@ -57,6 +61,23 @@ in Dockhand over HTTPS.
   on HA Container or HA Core).
 - Outbound internet access on first start, to pull the Hawser binary from
   GitHub releases.
+
+## Once it's connected
+
+Your Home Assistant host shows up in Dockhand as a regular Docker host. From
+there you get a live overview card with container counts, CPU/memory and the
+top-CPU containers:
+
+<p align="center">
+  <img src="assets/screenshot-card.png" alt="Home Assistant host card in Dockhand showing 15 containers, CPU and memory" width="520">
+</p>
+
+…the full container list with state, image, uptime and resource usage, and a
+built-in terminal for exec'ing into any container:
+
+<p align="center">
+  <img src="assets/screenshot-terminal.png" alt="Dockhand container list with a terminal session attached to a Home Assistant add-on container" width="100%">
+</p>
 
 ## Support
 
