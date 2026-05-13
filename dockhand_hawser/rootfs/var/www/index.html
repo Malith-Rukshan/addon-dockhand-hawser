@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hawser Agent for Dockhand</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f2038; color: #e8eef6;
+    }
+    .card {
+      max-width: 540px; padding: 2.5rem 2.75rem; border-radius: 16px;
+      background: #16273f; box-shadow: 0 12px 40px rgba(0,0,0,.35);
+    }
+    h1 { margin: 0 0 .25rem; font-size: 1.5rem; }
+    .tag { display: inline-block; margin-bottom: 1.25rem; padding: .15rem .6rem; border-radius: 999px;
+      background: #1cb0b0; color: #06222a; font-size: .75rem; font-weight: 600; letter-spacing: .03em; }
+    p { line-height: 1.6; color: #b9c6d8; }
+    a { color: #4fd0d0; }
+    code { background: #0f2038; padding: .15rem .35rem; border-radius: 6px; }
+    ul { line-height: 1.7; color: #b9c6d8; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="tag">RUNNING</span>
+    <h1>Hawser Agent for Dockhand</h1>
+    <p>
+      The Hawser agent is running inside this add-on. There is no interactive UI here —
+      manage this Docker host from your <a href="https://dockhand.pro" target="_blank" rel="noopener">Dockhand</a> dashboard.
+    </p>
+    <ul>
+      <li>Check the add-on <strong>Log</strong> tab for connection status and the resolved Hawser version.</li>
+      <li><strong>Edge mode:</strong> the host appears in Dockhand once the agent connects.</li>
+      <li><strong>Standard mode:</strong> add the host in Dockhand at <code>http://&lt;home-assistant-ip&gt;:2375</code>.</li>
+    </ul>
+    <p>Full documentation is on the add-on’s <strong>Documentation</strong> tab.</p>
+  </div>
+</body>
+</html>

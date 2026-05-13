@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+readonly exit_code_service="${1}"
+bashio::log.info "Hawser exited (${exit_code_service})."
+if [[ "${exit_code_service}" -ne 0 ]] && [[ "${exit_code_service}" -ne 256 ]]; then
+    echo "${exit_code_service}" > /run/s6-linux-init-container-results/exitcode
+fi
+exec /run/s6/basedir/bin/halt

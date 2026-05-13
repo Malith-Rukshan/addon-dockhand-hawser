@@ -1,0 +1,29 @@
+---
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  addon-manifest:
+    name: Add-on manifest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: frenck/action-addon-information@v1
+        with:
+          path: "./dockhand_hawser"
+
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get update && sudo apt-get install -y shellcheck
+          mapfile -t files < <(find dockhand_hawser/rootfs -type f \
+            \( -name '*.sh' -o -path '*/services.d/*/run' -o -path '*/services.d/*/finish' \))
+          shellcheck -s bash "${files[@]}"

@@ -1,0 +1,114 @@
+---
+name: Upstream sync
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve latest upstream Hawser release
+        id: upstream
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          release="$(gh api repos/Finsys/hawser/releases/latest)"
+          prerelease="$(jq -r '.prerelease' <<<"$release")"
+          if [ "$prerelease" = "true" ]; then
+            echo "Latest release is a prerelease; skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          tag="$(jq -r '.tag_name' <<<"$release")"
+          version="${tag#v}"
+          notes="$(jq -r '.body // ""' <<<"$release" | head -c 2000)"
+          {
+            echo "skip=false"
+            echo "version=${version}"
+            echo "tag=${tag}"
+            echo "notes<<__NOTES_EOF__"
+            echo "${notes}"
+            echo "__NOTES_EOF__"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Compare with current pinned version
+        id: compare
+        if: steps.upstream.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          current="$(grep -E '^\s*hawser_version:' dockhand_hawser/config.yaml \
+            | head -1 | sed -E 's/.*"([^"]+)".*/\1/')"
+          new="${{ steps.upstream.outputs.version }}"
+          echo "Current: ${current}  New: ${new}"
+          if [ "$current" = "$new" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "current=${current}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Apply version bump
+        if: steps.upstream.outputs.skip != 'true' && steps.compare.outputs.changed == 'true'
+        env:
+          NEW_VERSION: ${{ steps.upstream.outputs.version }}
+          OLD_VERSION: ${{ steps.compare.outputs.current }}
+          NOTES: ${{ steps.upstream.outputs.notes }}
+        run: |
+          set -euo pipefail
+          cfg=dockhand_hawser/config.yaml
+          sed -i -E "s/^(\s*hawser_version:\s*).*/\1\"${NEW_VERSION}\"/" "$cfg"
+          sed -i -E "s/^(version:\s*).*/\1\"${NEW_VERSION}\"/" "$cfg"
+
+          changelog=dockhand_hawser/CHANGELOG.md
+          tmp="$(mktemp)"
+          {
+            echo "# Changelog"
+            echo
+            echo "All notable changes to this add-on are documented here. The add-on version"
+            echo "tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release."
+            echo
+            echo "## ${NEW_VERSION}"
+            echo
+            echo "- Update bundled upstream Hawser to \`v${NEW_VERSION}\` (was \`v${OLD_VERSION}\`)."
+            echo
+            echo "  Upstream release notes:"
+            echo
+            printf '%s\n' "${NOTES}" | sed 's/^/  > /'
+            echo
+            # Re-append the previous changelog body (everything from the first "## " onward).
+            awk 'f{print} /^## /{f=1; print}' "$changelog"
+          } > "$tmp"
+          mv "$tmp" "$changelog"
+
+      - name: Create or update pull request
+        if: steps.upstream.outputs.skip != 'true' && steps.compare.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: upstream/hawser-${{ steps.upstream.outputs.version }}
+          delete-branch: true
+          commit-message: "Bump Hawser to v${{ steps.upstream.outputs.version }}"
+          title: "Bump Hawser to v${{ steps.upstream.outputs.version }}"
+          body: |
+            Automated update: upstream [Hawser](https://github.com/Finsys/hawser/releases/tag/v${{ steps.upstream.outputs.version }})
+            released `v${{ steps.upstream.outputs.version }}`.
+
+            - Bumps `hawser_version` default and the add-on `version` in `dockhand_hawser/config.yaml`.
+            - Prepends a changelog entry mirroring the upstream release notes.
+
+            Review the upstream release notes for any breaking changes before merging
+            (Hawser is still `0.x`).
+          labels: |
+            automated
+            upstream-update

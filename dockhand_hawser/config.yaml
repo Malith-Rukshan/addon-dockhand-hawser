@@ -1,0 +1,58 @@
+---
+name: Hawser Agent for Dockhand
+version: "0.2.42"
+slug: dockhand_hawser
+description: Bridges Home Assistant's Docker to a Dockhand server (Standard or Edge mode).
+url: https://github.com/Malith-Rukshan/addon-dockhand-hawser/tree/main/dockhand_hawser
+arch:
+  - amd64
+  - aarch64
+  - armv7
+init: false
+startup: services
+boot: auto
+hassio_api: true
+hassio_role: manager
+docker_api: true
+apparmor: true
+privileged:
+  - SYS_ADMIN
+map:
+  - ssl:ro
+  - share:rw
+ports:
+  2376/tcp: 2376
+ports_description:
+  2376/tcp: Standard mode Docker API port (only used when mode is "standard").
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:ferry
+panel_title: Hawser
+options:
+  hawser_version: "0.2.42"
+  mode: edge
+  agent_name: ""
+  token: ""
+  dockhand_url: ""
+  port: 2376
+  bind_address: "0.0.0.0"
+  tls_cert: ""
+  tls_key: ""
+  docker_socket: /var/run/docker.sock
+  stacks_dir: /data/stacks
+  log_level: info
+  skip_df_collection: false
+schema:
+  hawser_version: str
+  mode: list(standard|edge)
+  agent_name: str?
+  token: password?
+  dockhand_url: str?
+  port: port
+  bind_address: str
+  tls_cert: str?
+  tls_key: str?
+  docker_socket: str
+  stacks_dir: str
+  log_level: list(debug|info|warn|error)
+  skip_df_collection: bool

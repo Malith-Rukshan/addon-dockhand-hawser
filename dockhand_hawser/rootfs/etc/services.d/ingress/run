@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+exec darkhttpd /var/www --port 8099 --addr 0.0.0.0 --no-listing

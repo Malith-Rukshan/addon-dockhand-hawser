@@ -1,0 +1,55 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+
+bashio::log.level "$(bashio::config 'log_level')"
+
+mode="$(bashio::config 'mode')"
+
+AGENT_ID="$(cat /data/agent_id)"
+if bashio::config.has_value 'agent_name'; then
+    AGENT_NAME="$(bashio::config 'agent_name')"
+else
+    AGENT_NAME="$(bashio::info.hostname)"
+fi
+export AGENT_ID AGENT_NAME
+
+DOCKER_SOCKET="$(bashio::config 'docker_socket')"
+STACKS_DIR="$(bashio::config 'stacks_dir')"
+LOG_LEVEL="$(bashio::config 'log_level')"
+export DOCKER_SOCKET STACKS_DIR LOG_LEVEL
+
+if bashio::config.true 'skip_df_collection'; then
+    export SKIP_DF_COLLECTION=1
+fi
+
+resolve_ssl_path() {
+    local p="${1}"
+    [[ "${p}" == /* ]] && echo "${p}" || echo "/ssl/${p}"
+}
+
+if [[ "${mode}" == "edge" ]]; then
+    DOCKHAND_SERVER_URL="$(bashio::config 'dockhand_url')"
+    TOKEN="$(bashio::config 'token')"
+    export DOCKHAND_SERVER_URL TOKEN
+    bashio::log.info "Hawser starting in Edge mode (${AGENT_NAME}) → ${DOCKHAND_SERVER_URL}"
+else
+    PORT="$(bashio::config 'port')"
+    BIND_ADDRESS="$(bashio::config 'bind_address')"
+    export PORT BIND_ADDRESS
+
+    if bashio::config.has_value 'token'; then
+        TOKEN="$(bashio::config 'token')"
+        export TOKEN
+    fi
+    if bashio::config.has_value 'tls_cert'; then
+        TLS_CERT="$(resolve_ssl_path "$(bashio::config 'tls_cert')")"
+        export TLS_CERT
+    fi
+    if bashio::config.has_value 'tls_key'; then
+        TLS_KEY="$(resolve_ssl_path "$(bashio::config 'tls_key')")"
+        export TLS_KEY
+    fi
+    bashio::log.info "Hawser starting in Standard mode (${AGENT_NAME}) on ${BIND_ADDRESS}:${PORT}"
+fi
+
+exec /usr/local/bin/hawser

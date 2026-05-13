@@ -1,0 +1,11 @@
+---
+build_from:
+  amd64: ghcr.io/home-assistant/amd64-base:latest
+  aarch64: ghcr.io/home-assistant/aarch64-base:latest
+  armv7: ghcr.io/home-assistant/armv7-base:latest
+labels:
+  org.opencontainers.image.title: Hawser Agent for Dockhand
+  org.opencontainers.image.description: >-
+    Hawser agent add-on bridging the Home Assistant Docker environment to Dockhand.
+  org.opencontainers.image.source: https://github.com/Malith-Rukshan/addon-dockhand-hawser
+  org.opencontainers.image.licenses: MIT

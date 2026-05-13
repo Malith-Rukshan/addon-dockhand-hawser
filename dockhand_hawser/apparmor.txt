@@ -1,0 +1,52 @@
+#include <tunables/global>
+
+profile dockhand_hawser flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+
+  # Capabilities
+  file,
+  signal (send) set=(kill,term,int,hup,cont),
+  signal (receive),
+  capability,
+
+  # Allow the Docker socket / API access this add-on relies on.
+  capability sys_admin,
+  capability sys_ptrace,
+  capability dac_override,
+  capability dac_read_search,
+  network,
+  unix,
+  mount,
+  umount,
+
+  # S6-Overlay
+  /init ix,
+  /bin/** ix,
+  /usr/bin/** ix,
+  /usr/local/bin/** ix,
+  /usr/libexec/** ix,
+  /run/{s6,s6-rc*,service}/** ix,
+  /package/** ix,
+  /command/** ix,
+  /etc/s6-overlay/** ix,
+  /etc/services.d/** rwix,
+  /etc/cont-init.d/** rwix,
+  /etc/cont-finish.d/** rwix,
+  /run/{,**} rwk,
+  /dev/tty rw,
+
+  # Bashio
+  /usr/lib/bashio/** ix,
+  /tmp/** rwk,
+
+  # Add-on data, mapped SSL (read-only) and share (read-write) directories.
+  /data/** rwk,
+  /ssl/** r,
+  /share/** rwk,
+
+  # Docker socket and runtime metadata.
+  /var/run/docker.sock rw,
+  /run/docker.sock rw,
+  @{PROC}/** r,
+  @{sys}/** r,
+}

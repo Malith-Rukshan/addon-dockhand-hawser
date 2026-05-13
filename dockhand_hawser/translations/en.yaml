@@ -1,0 +1,65 @@
+---
+configuration:
+  hawser_version:
+    name: Hawser version
+    description: >-
+      Hawser release to run, without the leading "v" (e.g. "0.2.42"). Use
+      "latest" to always fetch the newest release.
+  mode:
+    name: Mode
+    description: >-
+      "edge" — agent connects out to a Dockhand server (best for NAT / dynamic
+      IP). "standard" — agent listens on the local network for Dockhand.
+  agent_name:
+    name: Agent name
+    description: Name shown in Dockhand. Leave empty to use the Home Assistant hostname.
+  token:
+    name: Token
+    description: >-
+      Edge mode: the agent token shown in Dockhand when you add this host
+      (required). Standard mode: an optional auth token Dockhand must send.
+  dockhand_url:
+    name: Dockhand server URL
+    description: >-
+      Edge mode only — required. The WebSocket URL of your Dockhand server,
+      e.g. wss://your-dockhand.example.com/api/hawser/connect. Ignored in
+      Standard mode.
+  port:
+    name: Listen port
+    description: >-
+      Standard mode only. TCP port the agent listens on (Hawser's default is
+      2376, which is also what Dockhand expects). If you change this, also
+      update the add-on's Network port mapping to match.
+  bind_address:
+    name: Bind address
+    description: >-
+      Standard mode only. 0.0.0.0 listens on all interfaces; use 127.0.0.1 to
+      restrict to localhost.
+  tls_cert:
+    name: TLS certificate
+    description: >-
+      Standard mode only. Path to the server TLS certificate. Relative paths
+      are resolved under /ssl. Requires the TLS key to also be set.
+  tls_key:
+    name: TLS private key
+    description: >-
+      Standard mode only. Path to the server TLS private key. Relative paths
+      are resolved under /ssl. Requires the TLS certificate to also be set.
+  docker_socket:
+    name: Docker socket path
+    description: Path to the Docker socket the agent talks to.
+  stacks_dir:
+    name: Stacks directory
+    description: >-
+      Where Dockhand-managed Compose stack files are stored. Kept on the
+      add-on's persistent /data volume by default.
+  log_level:
+    name: Log level
+    description: "Verbosity: debug, info, warn or error."
+  skip_df_collection:
+    name: Skip disk usage collection
+    description: >-
+      Skip disk usage metrics. Useful on NAS hosts or systems with many mounted
+      filesystems where statfs is slow.
+network:
+  2376/tcp: Standard mode Docker API port. Not needed in Edge mode.

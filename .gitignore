@@ -1,0 +1,14 @@
+# Local build / test artefacts
+*.tar
+*.tar.gz
+.DS_Store
+*.log
+
+# Editor / OS cruft
+.idea/
+.vscode/
+*.swp
+
+# Local agents
+.claude/
+.copilot/
