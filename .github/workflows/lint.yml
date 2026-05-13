@@ -12,7 +12,7 @@ jobs:
     name: Add-on manifest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: frenck/action-addon-information@v1
         with:
           path: "./dockhand_hawser"
@@ -21,7 +21,7 @@ jobs:
     name: ShellCheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: |
           sudo apt-get update && sudo apt-get install -y shellcheck
           mapfile -t files < <(find dockhand_hawser/rootfs -type f \
