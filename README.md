@@ -6,7 +6,7 @@
 ![Doesn't support armhf Architecture][armhf-shield]
 ![Doesn't support i386 Architecture][i386-shield]
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FMalith-Rukshan%2Faddon-dockhand-hawser)
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository=https%3A%2F%2Fgithub.com%2FMalith-Rukshan%2Faddon-dockhand-hawser)
 
 _Run the Hawser agent inside Home Assistant to let [Dockhand](https://dockhand.pro) manage your HA Docker host — containers, images, networks, volumes and Compose stacks — from anywhere._
 
