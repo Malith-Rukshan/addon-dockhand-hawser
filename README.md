@@ -6,7 +6,7 @@
 ![Doesn't support armhf Architecture][armhf-shield]
 ![Doesn't support i386 Architecture][i386-shield]
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FMalith-Rukshan%2Faddon-dockhand-hawser)
+[![Open your Home Assistant instance and show the dashboard of the Hawser Agent for Dockhand add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=6cefa750_dockhand_hawser&repository_url=https%3A%2F%2Fgithub.com%2FMalith-Rukshan%2Faddon-dockhand-hawser)
 
 _Run the Hawser agent inside Home Assistant to let [Dockhand](https://dockhand.pro) manage your HA Docker host — containers, images, networks, volumes and Compose stacks — from anywhere._
 
@@ -43,7 +43,8 @@ upgrade path simple.
 2. Open the **⋮** menu (top right) → **Repositories**.
 3. Paste this repository URL and click **Add**:
    `https://github.com/Malith-Rukshan/addon-dockhand-hawser`
-   — or just click the **"Add repository to my Home Assistant"** badge above.
+   — or just click the badge above, which both adds the repo and jumps you
+   straight to this add-on's page.
 4. The **Hawser Agent for Dockhand** add-on now appears in the store. Install it.
 5. On the add-on's **Info** page, toggle **Protection mode → OFF** (required —
    the agent needs access to the host's Docker socket; Home Assistant guards
