@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.42.1
+
+- Fix the port shown on the ingress WebUI page (was hardcoded to `2375`, now
+  reflects the configured `port` value).
+
 ## 0.2.42
 
 - Initial release. Bundles upstream Hawser `v0.2.42`.
