@@ -67,7 +67,7 @@ jobs:
         run: |
           set -euo pipefail
           cfg=dockhand_hawser/config.yaml
-          sed -i -E "s/^(\s*hawser_version:\s*).*/\1\"${NEW_VERSION}\"/" "$cfg"
+          sed -i -E "s/^(\s*hawser_version:\s*)\"[^\"]*\"/\1\"${NEW_VERSION}\"/" "$cfg"
           sed -i -E "s/^(version:\s*).*/\1\"${NEW_VERSION}\"/" "$cfg"
 
           changelog=dockhand_hawser/CHANGELOG.md

@@ -43,7 +43,7 @@ options:
   log_level: info
   skip_df_collection: false
 schema:
-  hawser_version: "0.2.43"
+  hawser_version: str
   mode: list(standard|edge)
   agent_name: str?
   token: password?
