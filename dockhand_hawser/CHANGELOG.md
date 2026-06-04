@@ -3,6 +3,16 @@
 All notable changes to this add-on are documented here. The add-on version
 tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 
+## 0.2.44
+
+- Update bundled upstream Hawser to `v0.2.44` (was `v0.2.43`).
+
+  Upstream release notes:
+
+  > ## Changelog
+  > * 3cbc419eee316a285d980db38ad22805199ac493 fix: use clean env for compose subprocess to prevent inherited .env override (#1113)
+  > 
+
 ## 0.2.43
 
 - Update bundled upstream Hawser to `v0.2.43` (was `v0.2.42`).
@@ -17,10 +27,13 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > - Remove unused edge /info endpoint
 
 ## 0.2.42.1
+## 0.2.42.1
 
 - Fix the port shown on the ingress WebUI page (was hardcoded to `2375`, now
   reflects the configured `port` value).
 
+## 0.2.42
+## 0.2.42
 ## 0.2.42
 ## 0.2.42
 
