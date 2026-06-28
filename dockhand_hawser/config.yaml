@@ -1,6 +1,6 @@
 ---
 name: Hawser Agent for Dockhand
-version: "0.2.45"
+version: "0.2.46"
 slug: dockhand_hawser
 description: Bridges Home Assistant's Docker to a Dockhand server (Standard or Edge mode).
 url: https://github.com/Malith-Rukshan/addon-dockhand-hawser/tree/main/dockhand_hawser
@@ -29,7 +29,7 @@ ingress_port: 8099
 panel_icon: mdi:ferry
 panel_title: Hawser
 options:
-  hawser_version: "0.2.45"
+  hawser_version: "0.2.46"
   mode: edge
   agent_name: ""
   token: ""

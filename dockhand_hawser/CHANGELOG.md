@@ -3,6 +3,30 @@
 All notable changes to this add-on are documented here. The add-on version
 tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 
+## 0.2.46
+
+- Update bundled upstream Hawser to `v0.2.46` (was `v0.2.45`).
+
+  Upstream release notes:
+
+  > > [!NOTE]
+  > > Hawser standard mode now requires a token when Hawser binds a non-loopback address (the default `0.0.0.0`). If a standard-mode agent has no `TOKEN` set, choose one of:
+  > 
+  > - set `TOKEN` (recommended — and add it to the matching environment in Dockhand), or
+  > - bind locally with `BIND_ADDRESS=127.0.0.1`, or
+  > - set `ALLOW_INSECURE_NO_AUTH=true` to keep the previous behavior.
+  > 
+  > Edge-mode agents and agents that already use a token are unaffected.
+  > 
+  > 
+  > 
+  > ## Changelog
+  > * 3e5496536f551dd12f24132275905884614d5481 Refuse to start standard mode on a public bind without a token
+  > 
+  > 
+  > 
+  > 
+
 ## 0.2.45
 
 - Update bundled upstream Hawser to `v0.2.45` (was `v0.2.44`).
@@ -17,6 +41,7 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > 
 
 ## 0.2.44
+## 0.2.44
 
 - Update bundled upstream Hawser to `v0.2.44` (was `v0.2.43`).
 
@@ -26,6 +51,8 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > * 3cbc419eee316a285d980db38ad22805199ac493 fix: use clean env for compose subprocess to prevent inherited .env override (#1113)
   > 
 
+## 0.2.43
+## 0.2.43
 ## 0.2.43
 ## 0.2.43
 
@@ -44,10 +71,22 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 ## 0.2.42.1
 ## 0.2.42.1
 ## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
 
 - Fix the port shown on the ingress WebUI page (was hardcoded to `2375`, now
   reflects the configured `port` value).
 
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
 ## 0.2.42
 ## 0.2.42
 ## 0.2.42
