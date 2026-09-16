@@ -3,6 +3,18 @@
 All notable changes to this add-on are documented here. The add-on version
 tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 
+## 0.2.48
+
+- Update bundled upstream Hawser to `v0.2.48` (was `v0.2.46`).
+
+  Upstream release notes:
+
+  > ## Changelog
+  > * 706fce17b0bf9fbb2fb2a04e67e163e51578f79c add docker attach terminal support to the edge agent
+  > * 74e158c8b60d0bdd40279ab777480458373f5125 docker-compose=5.5.0-r5
+  > * cdf530ea3822f73b19a3084c9325f3db96c79f4e feat(config): support TOKEN_FILE for Docker and Kubernetes secrets (#67)
+  > 
+
 ## 0.2.47
 
 - Update bundled upstream Hawser to `v0.2.47` (was `v0.2.46`).
