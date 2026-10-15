@@ -3,6 +3,17 @@
 All notable changes to this add-on are documented here. The add-on version
 tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 
+## 0.2.50
+
+- Update bundled upstream Hawser to `v0.2.50` (was `v0.2.49`).
+
+  Upstream release notes:
+
+  > ## Changelog
+  > * f81721518d7cf16fc59bbd2bc4cb7ee5fd66b874 default REQUEST_TIMEOUT to 30s (#104)
+  > * 6776eb34143d74725ea422625dcdb754311e6123 free raw edge frame and request body after decoding (#1581)
+  > * 265a07d11a35b8c9fe67090cb5cf9ba168fc2d32 honor REQUEST_TIMEOUT on the socket Docker client (#104)
+
 ## 0.2.49
 
 - Update bundled upstream Hawser to `v0.2.49` (was `v0.2.48`).
@@ -12,6 +23,7 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > ## Changelog
   > * c0e369388e2d02aab2dfe2bd3d76ec474df78615 make the edge WebSocket read limit configurable via MAX_MESSAGE_SIZE_MB
 
+## 0.2.48
 ## 0.2.48
 
 - Update bundled upstream Hawser to `v0.2.48` (was `v0.2.46`).
@@ -24,6 +36,8 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > * cdf530ea3822f73b19a3084c9325f3db96c79f4e feat(config): support TOKEN_FILE for Docker and Kubernetes secrets (#67)
   > 
 
+## 0.2.47
+## 0.2.47
 ## 0.2.47
 ## 0.2.47
 
@@ -48,6 +62,8 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > * b8ff4282775fbce338e6afedceb450662d73490b test(compose): gate the docker-dependent build test behind an env switch
   > 
 
+## 0.2.46
+## 0.2.46
 ## 0.2.46
 ## 0.2.46
 
@@ -77,6 +93,10 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 ## 0.2.45
 ## 0.2.45
 ## 0.2.45
+## 0.2.45
+## 0.2.45
+## 0.2.45
+## 0.2.45
 
 - Update bundled upstream Hawser to `v0.2.45` (was `v0.2.44`).
 
@@ -97,6 +117,14 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 ## 0.2.44
 ## 0.2.44
 ## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
 
 - Update bundled upstream Hawser to `v0.2.44` (was `v0.2.43`).
 
@@ -106,6 +134,22 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > * 3cbc419eee316a285d980db38ad22805199ac493 fix: use clean env for compose subprocess to prevent inherited .env override (#1113)
   > 
 
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
 ## 0.2.43
 ## 0.2.43
 ## 0.2.43
@@ -166,10 +210,106 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 ## 0.2.42.1
 ## 0.2.42.1
 ## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
 
 - Fix the port shown on the ingress WebUI page (was hardcoded to `2375`, now
   reflects the configured `port` value).
 
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
 ## 0.2.42
 ## 0.2.42
 ## 0.2.42
