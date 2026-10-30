@@ -3,6 +3,25 @@
 All notable changes to this add-on are documented here. The add-on version
 tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 
+## 0.2.53
+
+- Update bundled upstream Hawser to `v0.2.53` (was `v0.2.50`).
+
+  Upstream release notes:
+
+  > ## Changelog
+  > * bd1282901f7f33537adaebea33121c1831ef07a5 README: arm archive name, extract only the binary, up has no no-cache, metrics are Edge-only, TLS health check is Standard-only, token header applies when TOKEN is set, REQUEST_TIMEOUT in both modes, INSTALL_DIR, STACKS_DIR on existing installs, OpenRC upgrade; ansible README: PrivateTmp is writable too
+  > * 86db705b0974f05663c6920c53eb76332bc79255 README: settings come from env vars (no --port/--server/--token flags), Standard examples carry a TOKEN, units match the installer, upgrading and read-only notes, installer options, working download URL, armv7, compose ops, auth header, token storage
+  > * 9ce9fd674c5a61a44d5ca3a6bfc0ea8c959548ef ansible README: the role creates the stacks directory; which paths the unit leaves writable
+  > * c61ae59a9c681b0a96390831599004c0d7a2c021 ansible tests: check the service with the systemd module, mark the by-path role import as intended; ansible-lint clean
+  > * 7042fe69bd24ae3ac80bb838e64e0cc310909e0c ansible: StartLimitIntervalSec and StartLimitBurst belong in [Unit]; systemd ignored the interval in [Service]
+  > * 60d968ee524102b2d4cfcb7703dfdf476ccb3006 ansible: create the stacks directory and allow it in the unit (ReadOnlyPaths=/ left STACKS_DIR read-only); hawser_stacks_dir variable
+  > * 9c85dcc87fc3ef764cdc65702d52a43ee09da9de ansible: set owner and mode only when creating the stacks directory, leave an existing one alone
+  > * 099bd901b509d98a0b52f92ba9cdd2f2c290e4e0 compose: a no-cache up runs build --no-cache and then up; docker compose up has no --no-cache
+  > * 247e83026c9cbcc85a5d967ad5a54fc9d535dbc9 compose: preserve the executable bit when writing stack files
+  > * df57cda14c9cbd1dbbee29ebe3057e3d0a2e49d5 compose: the up after a no-cache build keeps --build, so a pull policy cannot replace the fresh image with the registry tag; tests pin the deletion before the build, its report and the merged output
+  > * ac8f3f07d435e96b520f192aede779d320b36925 config: a unix:// DOCKER_HOST names the
+
 ## 0.2.50
 
 - Update bundled upstream Hawser to `v0.2.50` (was `v0.2.49`).
@@ -15,6 +34,7 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > * 265a07d11a35b8c9fe67090cb5cf9ba168fc2d32 honor REQUEST_TIMEOUT on the socket Docker client (#104)
 
 ## 0.2.49
+## 0.2.49
 
 - Update bundled upstream Hawser to `v0.2.49` (was `v0.2.48`).
 
@@ -23,6 +43,8 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > ## Changelog
   > * c0e369388e2d02aab2dfe2bd3d76ec474df78615 make the edge WebSocket read limit configurable via MAX_MESSAGE_SIZE_MB
 
+## 0.2.48
+## 0.2.48
 ## 0.2.48
 ## 0.2.48
 
@@ -36,6 +58,10 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > * cdf530ea3822f73b19a3084c9325f3db96c79f4e feat(config): support TOKEN_FILE for Docker and Kubernetes secrets (#67)
   > 
 
+## 0.2.47
+## 0.2.47
+## 0.2.47
+## 0.2.47
 ## 0.2.47
 ## 0.2.47
 ## 0.2.47
@@ -66,6 +92,10 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 ## 0.2.46
 ## 0.2.46
 ## 0.2.46
+## 0.2.46
+## 0.2.46
+## 0.2.46
+## 0.2.46
 
 - Update bundled upstream Hawser to `v0.2.46` (was `v0.2.45`).
 
@@ -89,6 +119,14 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > 
   > 
 
+## 0.2.45
+## 0.2.45
+## 0.2.45
+## 0.2.45
+## 0.2.45
+## 0.2.45
+## 0.2.45
+## 0.2.45
 ## 0.2.45
 ## 0.2.45
 ## 0.2.45
@@ -125,6 +163,22 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 ## 0.2.44
 ## 0.2.44
 ## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
+## 0.2.44
 
 - Update bundled upstream Hawser to `v0.2.44` (was `v0.2.43`).
 
@@ -134,6 +188,38 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
   > * 3cbc419eee316a285d980db38ad22805199ac493 fix: use clean env for compose subprocess to prevent inherited .env override (#1113)
   > 
 
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
+## 0.2.43
 ## 0.2.43
 ## 0.2.43
 ## 0.2.43
@@ -242,10 +328,202 @@ tracks the pinned upstream [Hawser](https://github.com/Finsys/hawser) release.
 ## 0.2.42.1
 ## 0.2.42.1
 ## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
+## 0.2.42.1
 
 - Fix the port shown on the ingress WebUI page (was hardcoded to `2375`, now
   reflects the configured `port` value).
 
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
+## 0.2.42
 ## 0.2.42
 ## 0.2.42
 ## 0.2.42
